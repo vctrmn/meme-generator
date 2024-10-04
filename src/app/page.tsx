@@ -21,7 +21,6 @@ export default function Home() {
       <div>
         <h2>File upload</h2>
         <IKUpload
-          fileName="test-upload.png"
           onError={(error) => {
             console.error("Error uploading file: ", error);
           }}

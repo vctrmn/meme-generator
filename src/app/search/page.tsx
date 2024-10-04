@@ -24,7 +24,8 @@ export default async function SearchPage({ searchParams }: { searchParams: { q: 
   });
 
   return (
-    <div>
+    <div className="container mx-auto space-y-8 py-8">
+      <h1 className="text-2xl font-bold">Search Results</h1>
       <ResultList files={files} />
     </div>
   );
