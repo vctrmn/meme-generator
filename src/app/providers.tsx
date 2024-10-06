@@ -1,6 +1,7 @@
 "use client";
 
 import { ImageKitProvider } from "imagekitio-next";
+import { ThemeProvider } from "./theme-provider";
 
 const publicKey = process.env.NEXT_PUBLIC_PUBLIC_KEY;
 const urlEndpoint = process.env.NEXT_PUBLIC_URL_ENDPOINT;
@@ -26,8 +27,14 @@ const authenticator = async () => {
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
-    <ImageKitProvider publicKey={publicKey} authenticator={authenticator} urlEndpoint={urlEndpoint}>
-      {children}
-    </ImageKitProvider>
+    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+      <ImageKitProvider
+        publicKey={publicKey}
+        authenticator={authenticator}
+        urlEndpoint={urlEndpoint}
+      >
+        {children}
+      </ImageKitProvider>
+    </ThemeProvider>
   );
 }
